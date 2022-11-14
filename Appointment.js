@@ -24,7 +24,7 @@ function onSubmit(e) {
     // Add text node with input values
     // li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
 
-    localStorage.setItem(`${nameInput.value}`,`${emailInput.value}`);
+    localStorage.setItem(`${nameInput.value}`,`${emailInput.value}`); //get change
 
     // Add HTML
     // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
@@ -35,5 +35,6 @@ function onSubmit(e) {
     // Clear fields
     nameInput.value = '';
     emailInput.value = '';
+    
   }
 }
