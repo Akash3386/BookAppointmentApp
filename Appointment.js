@@ -19,15 +19,37 @@ function onSubmit(e) {
     setTimeout(() => msg.remove(), 3000);
   } else {
     // Create new list item with user
-    // const li = document.createElement('li');
+    const li = document.createElement('li');
 
     // Add text node with input values
     // li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
 
-    localStorage.setItem(`${nameInput.value}`,`${emailInput.value}`);
-
+    // localStorage.setItem(`${nameInput.value}`,`${emailInput.value}`);
+    myObj =  {
+       name: nameInput.value,
+       email: emailInput.value
+    }
+    localStorage.setItem(myObj.email,JSON.stringify(myObj));
+    // console.log(Object(localStorage));
     // Add HTML
-    // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
+    // li.innerHTML = `<strong>${nameInput.value}</strong>: ${emailInput.value}`;
+    Object.keys(localStorage).forEach((key) => {
+
+      const li = document.createElement('li');
+
+      stringifiedDetailsOfPeople = localStorage.getItem(key);
+      // console.log(localStorage.getItem(key));
+      detailsOfPeople = JSON.parse(stringifiedDetailsOfPeople);
+
+
+      console.log(detailsOfPeople);
+      
+      li.appendChild(document.createTextNode(JSON.stringify(detailsOfPeople)));
+      li.innerHTML = `${detailsOfPeople.name} ${detailsOfPeople.email}`;
+      // li.innerHTML = `${detailsOfPeople.email}`;
+      userList.appendChild(li);
+
+      });
 
     // Append to ul
     // userList.appendChild(li);
