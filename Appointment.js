@@ -52,7 +52,7 @@ function onSubmit(e) {
       li.appendChild(document.createTextNode(JSON.stringify(detailsOfPeople)));
       li.innerHTML = `${detailsOfPeople.name} ${detailsOfPeople.email}`;
       
-
+      // code 
       var deleteBtn = document.createElement('button');
       var editBtn = document.createElement('button');
       
