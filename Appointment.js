@@ -82,8 +82,8 @@ function onSubmit(e) {
 
 function removeItems(e){
 
-  if (e.target.classList.contains('delete')){
-      // console.log(e.target.classList.contains('delete'));
+  if (e.target.classList.contains()){
+      console.log(e.target.classList.contains('delete'));
       if(confirm('Are you sure?')){
           var li = e.target.parentElement;
           userList.removeChild(li);
