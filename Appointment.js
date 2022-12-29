@@ -34,7 +34,7 @@ function onSubmit(e) {
        name: nameInput.value,
        email: emailInput.value
     }
-    localStorage.setItem(myObj.email,JSON.stringify(myObj));
+    localStorage.setItem(`userDetail${myObj.email}`,JSON.stringify(myObj));
     // localStorage.removeItem(myObj.email);
     // console.log(Object(localStorage));
     // Add HTML
