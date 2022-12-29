@@ -9,7 +9,7 @@ myForm.addEventListener('submit', onSubmit);
 userList.addEventListener("click",removeItems);
 // userList.addEventListener("click",editItem);
 
-
+// To get detail on screen
 axios.get('https://crudcrud.com/api/5f5c4ab67c074290a36d45a323d6e7c0/BookingData')
      .then((response) => {
         showUserOnScreen(response.data);
