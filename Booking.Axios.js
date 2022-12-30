@@ -44,59 +44,62 @@ function onSubmit(e) {
 
 }
 
-// function removeItems(e){
-//     e.preventDefault();
-//     if (e.target.classList.contains('delete')){
-//         console.log(e)
-//         var li = e.target.parentElement;
-//         userList.removeChild(li);
-//         // axios.delete(`https://crudcrud.com/api/5f5c4ab67c074290a36d45a323d6e7c0/BookingData/${ig}`)
-//     }
+function removeItems(e){
+    e.preventDefault();
+  
+    if (e.target.classList.contains('delete')){
+        
+        var li = e.target.parentElement;
+        userList.removeChild(li);
+        console.log(li.id);
+        axios.delete(`https://crudcrud.com/api/5f5c4ab67c074290a36d45a323d6e7c0/BookingData/${li.id}`)
+    }
 
-// }
+}
 
 
 function showUserOnScreen(object){
-    // console.log(object)
+    
+    
     for (var i=0; i<object.length;i++){
-    const li = document.createElement('li');
-    li.appendChild(document.createTextNode(JSON.stringify(object[i])));
-    li.innerHTML = `${object[i].name} ${object[i].email}`;
+      const li = document.createElement('li');
+    
+      li.appendChild(document.createTextNode(JSON.stringify(object[i])));
+      li.innerHTML = `${object[i].name} ${object[i].email}`;
+      li.id = `${object[i]._id}`;
 
-    var deleteBtn = document.createElement('button');
-    var editBtn = document.createElement('button');
+      var deleteBtn = document.createElement('button');
+      var editBtn = document.createElement('button');
       
-    deleteBtn.className = " float-right delete";
+      deleteBtn.className = " float-right delete";
 
-    // editBtn.style = "backgroundcolor: 2px solid green;";
-    // deleteBtn.style="border: 2px solid red;";
+      deleteBtn.appendChild(document.createTextNode('DELETE'));
+      editBtn.appendChild(document.createTextNode('EDIT'));
+  
+      userList.appendChild(li);
 
-    deleteBtn.appendChild(document.createTextNode('DELETE'));
-    editBtn.appendChild(document.createTextNode('EDIT'));
-      // li.innerHTML = `${detailsOfPeople.email}`;
-    userList.appendChild(li);
-    li.appendChild(editBtn);
-    li.appendChild(deleteBtn);
+      li.appendChild(editBtn);
+      li.appendChild(deleteBtn);
     }
-    // userList.appendChild(li);  
+  
 }
 
 function showPost(object){
     const li = document.createElement('li');
+    
     li.appendChild(document.createTextNode(JSON.stringify(object)));
     li.innerHTML = `${object.name} ${object.email}`;
+    li.id = `${object._id}`;
 
     var deleteBtn = document.createElement('button');
     var editBtn = document.createElement('button');
       
     deleteBtn.className = " float-right delete";
 
-    // editBtn.style = "backgroundcolor: 2px solid green;";
-    // deleteBtn.style="border: 2px solid red;";
-
+    
     deleteBtn.appendChild(document.createTextNode('DELETE'));
     editBtn.appendChild(document.createTextNode('EDIT'));
-      // li.innerHTML = `${detailsOfPeople.email}`;
+     
     userList.appendChild(li);
     li.appendChild(editBtn);
     li.appendChild(deleteBtn);
